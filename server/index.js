@@ -5,6 +5,7 @@ dotenv.config()
 import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
 import helmet from 'helmet'
+import connectDB from './config/connectDB.js'
 
 const app = express()
 app.use(cors({
@@ -25,6 +26,8 @@ app.get("/", (request,response) => {
         message: "Server is running on " + PORT
     })
 })
+
+connectDB()
 
 const server = app.listen(PORT, () => {
     console.log(`Server is running on:. http://localhost:${PORT}`);
