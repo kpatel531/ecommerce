@@ -7,6 +7,7 @@ import generateAccessToken from '../utils/generateAccessToken.js'
 import generateRefreshToken from '../utils/generateRefreshToken.js'
 import uploadImageClodinary from '../utils/uploadImageCloudinary.js'
 import forgotPasswordTemplate from '../utils/forgotPasswordTemplate.js'
+import jwt from 'jsonwebtoken'
 dotenv.config()
 
 export async function registerUserController(request, response) {
@@ -418,6 +419,80 @@ export async function resetpassword(request,response){
     } catch (error) {
         return response.status(500).json({
             message : error.message || error,
+            error : true,
+            success : false
+        })
+    }
+}
+
+export async function refreshToken(request,response){
+    try {
+        const refreshToken = request.cookies.refreshToken || request?.headers?.authorization?.split(" ")[1]  /// [ Bearer token]
+
+        if(!refreshToken){
+            return response.status(401).json({
+                message : "Invalid token",
+                error  : true,
+                success : false
+            })
+        }
+
+        const verifyToken = await jwt.verify(refreshToken,process.env.SECRET_KEY_REFRESH_TOKEN)
+
+        if(!verifyToken){
+            return response.status(401).json({
+                message : "token is expired",
+                error : true,
+                success : false
+            })
+        }
+
+        const userId = verifyToken?._id
+
+        const newAccessToken = await generateAccessToken(userId)
+
+        const cookiesOption = {
+            httpOnly : true,
+            secure : true,
+            sameSite : "None"
+        }
+
+        response.cookie('accessToken',newAccessToken,cookiesOption)
+
+        return response.json({
+            message : "New Access token generated",
+            error : false,
+            success : true,
+            data : {
+                accessToken : newAccessToken
+            }
+        })
+
+
+    } catch (error) {
+        return response.status(500).json({
+            message : error.message || error,
+            error : true,
+            success : false
+        })
+    }
+}
+
+export async function userDetails(request,response){
+    try {
+        const userId  = request.userId
+
+        const user = await UserModel.findById(userId).select('-password -refresh_token')
+
+        return response.json({
+            message : 'user details',
+            data : user,
+            error : false,
+            success : true
+        })
+    } catch (error) {
+        return response.status(500).json({
+            message : "Something is wrong",
             error : true,
             success : false
         })
