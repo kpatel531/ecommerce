@@ -1,4 +1,4 @@
-import uploadImageClodinary from "../utils/uploadImageClodinary.js"
+import uploadImageClodinary from '../utils/uploadImageCloudinary.js'
 
 const uploadImageController = async(request,response)=>{
     try {
