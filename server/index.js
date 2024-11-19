@@ -44,24 +44,8 @@ app.use("/api/cart", cartRouter)
 app.use("/api/address", addressRouter)
 app.use('/api/order', orderRouter)
 
-connectDB()
-
-const server = app.listen(PORT, () => {
-    console.log(`Server is running on:. http://localhost:${PORT}`);
+connectDB().then(()=>{
+    app.listen(PORT,()=>{
+        console.log("Server is running",PORT)
+    })
 })
-
-process.on('SIGINT', () => {
-    console.log('SIGINT signal received. Closing server.');
-    server.close(() => {
-      console.error('Server closed. Exiting process.');
-      process.exit(0);
-    });
-});
-
-process.on('SIGTERM', () => {
-    console.log('SIGTERM signal received. Closing server.');
-    server.close(() => {
-        console.error('Server closed. Exiting process.');
-        process.exit(0);
-    });
-});
