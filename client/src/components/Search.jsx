@@ -52,8 +52,9 @@ const Search = () => {
                      <div onClick={redirectToSearchPage} className='w-full h-full flex items-center'>
                         <TypeAnimation
                                 sequence={[
+                                    // Same substring at the start will only be typed out once, initially
                                     'Search "milk"',
-                                    1000,
+                                    1000, // wait 1s before replacing "Mice" with "Hamsters"
                                     'Search "bread"',
                                     1000,
                                     'Search "sugar"',
