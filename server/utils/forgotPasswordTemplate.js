@@ -1,4 +1,4 @@
-const forgotPasswordTemplate = ({ name, otp })=>{
+const forgotPasswordTemplate = ({ name, otp, domain })=>{
     return `
 <div>
     <p>Dear, ${name}</p>
@@ -10,7 +10,7 @@ const forgotPasswordTemplate = ({ name, otp })=>{
     <br/>
     </br>
     <p>Thanks</p>
-    <p>Binkeyit</p>
+    <p>${domain}</p>
 </div>
     `
 }
