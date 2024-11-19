@@ -11,6 +11,8 @@ import image2 from '../assets/Best_Prices_Offers.png'
 import image3 from '../assets/Wide_Assortment.png'
 import { pricewithDiscount } from '../utils/PriceWithDiscount'
 import AddToCartButton from '../components/AddToCartButton'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const ProductDisplayPage = () => {
   const params = useParams()
@@ -164,7 +166,7 @@ const ProductDisplayPage = () => {
               }
            
 
-            <h2 className='font-semibold'>Why shop from binkeyit? </h2>
+            <h2 className='font-semibold'>`Why shop from ${process.env.DOMAIN}`?</h2>
             <div>
                   <div className='flex  items-center gap-4 my-4'>
                       <img
