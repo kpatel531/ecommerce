@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '../provider/GlobalProvider'
 import Axios from '../utils/Axios'
@@ -7,6 +8,7 @@ import AxiosToastError from '../utils/AxiosToastError'
 import Loading from './Loading'
 import { useSelector } from 'react-redux'
 import { FaMinus, FaPlus } from "react-icons/fa6";
+import { BsCart4 } from "react-icons/bs";
 
 const AddToCartButton = ({ data }) => {
     const { fetchCartItem, updateCartItem, deleteCartItem } = useGlobalContext()
@@ -93,8 +95,8 @@ const AddToCartButton = ({ data }) => {
                         <button onClick={increaseQty} className='bg-green-600 hover:bg-green-700 text-white flex-1 w-full p-1 rounded flex items-center justify-center'><FaPlus /></button>
                     </div>
                 ) : (
-                    <button onClick={handleADDTocart} className='bg-green-600 hover:bg-green-700 text-white px-2 lg:px-4 py-1 rounded'>
-                        {loading ? <Loading /> : "Add"}
+                    <button onClick={handleADDTocart} className='bg-green-600 hover:bg-green-700 text-white px-2 py-1 w-full rounded font-normal'>
+                        {loading ? <Loading /> : <span className='flex-1 flex w-full'><BsCart4 size={25} /> Add to Cart</span>}
                     </button>
                 )
             }

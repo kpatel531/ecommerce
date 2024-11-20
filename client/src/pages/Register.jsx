@@ -74,7 +74,7 @@ const Register = () => {
     return (
         <section className='w-full container mx-auto px-2'>
             <div className='bg-white my-4 w-full max-w-lg mx-auto rounded p-7'>
-                <p>`Welcome to ${process.env.DOMAIN}`</p>
+                <strong>"Welcome to E-Commerce"</strong>
 
                 <form className='grid gap-4 mt-6' onSubmit={handleSubmit}>
                     <div className='grid gap-1'>
@@ -108,7 +108,7 @@ const Register = () => {
                             <input
                                 type={showPassword ? "text" : "password"}
                                 id='password'
-                                className='w-full outline-none'
+                                className='bg-blue-50 w-full outline-none'
                                 name='password'
                                 value={data.password}
                                 onChange={handleChange}
@@ -131,7 +131,7 @@ const Register = () => {
                             <input
                                 type={showConfirmPassword ? "text" : "password"}
                                 id='confirmPassword'
-                                className='w-full outline-none'
+                                className='bg-blue-50 w-full outline-none'
                                 name='confirmPassword'
                                 value={data.confirmPassword}
                                 onChange={handleChange}
