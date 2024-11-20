@@ -41,7 +41,7 @@ const Header = () => {
     }
 
   return (
-    <header className='h-24 lg:h-20 lg:shadow-md sticky top-0 z-40 flex flex-col justify-center gap-1 bg-white'>
+    <header className='h-24 lg:h-25 lg:shadow-md sticky top-0 z-40 flex flex-col justify-center gap-1 bg-white'>
         {
             !(isSearchPage && isMobile) && (
                 <div className='container mx-auto flex items-center px-2 justify-between'>
@@ -57,7 +57,7 @@ const Header = () => {
                                         />
                                         <img 
                                             src={logo}
-                                            width={120}
+                                            width={100}
                                             height={60}
                                             alt='logo'
                                             className='lg:hidden'
@@ -84,7 +84,7 @@ const Header = () => {
                                             user?._id ? (
                                                 <div className='relative'>
                                                     <div onClick={()=>setOpenUserMenu(preve => !preve)} className='flex select-none items-center gap-1 cursor-pointer'>
-                                                        <p>Account</p>
+                                                        <p className='font-normal'>Account</p>
                                                         {
                                                             openUserMenu ? (
                                                                   <GoTriangleUp size={25}/> 
@@ -106,7 +106,7 @@ const Header = () => {
                                                     
                                                 </div>
                                             ) : (
-                                                <button onClick={redirectToLoginPage} className='text-lg px-2'>Login</button>
+                                                <button onClick={redirectToLoginPage} className='text-lg px-2 font-normal'>Login</button>
                                             )
                                         }
                                         <button onClick={()=>setOpenCartSection(true)} className='flex items-center gap-2 bg-green-800 hover:bg-green-700 px-3 py-2 rounded text-white'>

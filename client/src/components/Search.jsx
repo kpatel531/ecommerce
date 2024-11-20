@@ -52,9 +52,8 @@ const Search = () => {
                      <div onClick={redirectToSearchPage} className='w-full h-full flex items-center'>
                         <TypeAnimation
                                 sequence={[
-                                    // Same substring at the start will only be typed out once, initially
                                     'Search "milk"',
-                                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                                    1000,
                                     'Search "bread"',
                                     1000,
                                     'Search "sugar"',
@@ -72,7 +71,8 @@ const Search = () => {
                                     'Search "chips"',
                                 ]}
                                 wrapper="span"
-                                speed={50}
+                                speed={20}
+                                style={{fontWeight: '300'}}
                                 repeat={Infinity}
                             />
                      </div>
@@ -84,7 +84,7 @@ const Search = () => {
                             placeholder='Search for atta dal and more.'
                             autoFocus
                             defaultValue={searchText}
-                            className='bg-transparent w-full h-full outline-none'
+                            className='bg-transparent w-full h-full outline-none font-light'
                             onChange={handleOnChange}
                         />
                     </div>
