@@ -22,7 +22,9 @@ function App() {
 
   const fetchUser = async()=>{
       const userData = await fetchUserDetails()
-      dispatch(setUserDetails(userData.data))
+      if (userData) {
+        dispatch(setUserDetails(userData.data))
+      }
   }
 
   const fetchCategory = async()=>{
@@ -75,7 +77,14 @@ function App() {
           <Outlet/>
       </main>
       <Footer/>
-      <Toaster/>
+      <Toaster
+        toastOptions={{
+          style: {
+            fontWeight: '300'
+          },
+        }}
+      />
+
       {
         location.pathname !== '/checkout' && (
           <CartMobileLink/>

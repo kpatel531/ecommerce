@@ -74,11 +74,11 @@ const Login = () => {
 
                 <form className='grid gap-4 py-4' onSubmit={handleSubmit}>
                     <div className='grid gap-1'>
-                        <label htmlFor='email'>Email :</label>
+                        <label htmlFor='email' className='font-semibold'>Email :</label>
                         <input
                             type='email'
                             id='email'
-                            className='bg-blue-50 p-2 border rounded outline-none focus:border-primary-200'
+                            className='bg-blue-50 p-2 border rounded outline-none focus:border-primary-200 font-normal'
                             name='email'
                             value={data.email}
                             onChange={handleChange}
@@ -86,12 +86,12 @@ const Login = () => {
                         />
                     </div>
                     <div className='grid gap-1'>
-                        <label htmlFor='password'>Password :</label>
+                        <label htmlFor='password' className='font-semibold'>Password :</label>
                         <div className='bg-blue-50 p-2 border rounded flex items-center focus-within:border-primary-200'>
                             <input
                                 type={showPassword ? "text" : "password"}
                                 id='password'
-                                className='w-full outline-none'
+                                className='bg-blue-50 w-full outline-none font-normal'
                                 name='password'
                                 value={data.password}
                                 onChange={handleChange}
@@ -107,7 +107,7 @@ const Login = () => {
                                 }
                             </div>
                         </div>
-                        <Link to={"/forgot-password"} className='block ml-auto hover:text-primary-200'>Forgot password ?</Link>
+                        <Link to={"/forgot-password"} className='block ml-auto hover:text-primary-200 font-medium text-red-400'>Forgot password ?</Link>
                     </div>
     
                     <button disabled={!valideValue} className={` ${valideValue ? "bg-green-800 hover:bg-green-700" : "bg-gray-500" }    text-white py-2 rounded font-semibold my-3 tracking-wide`}>Login</button>
@@ -115,7 +115,7 @@ const Login = () => {
                 </form>
 
                 <p>
-                    Don't have account? <Link to={"/register"} className='font-semibold text-green-700 hover:text-green-800'>Register</Link>
+                    <span className='font-normal'>Don't have account?</span> <Link to={"/register"} className='font-semibold text-green-700 hover:text-green-800'>Register</Link>
                 </p>
             </div>
         </section>
