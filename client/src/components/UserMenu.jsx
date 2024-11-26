@@ -20,7 +20,7 @@ const UserMenu = ({close}) => {
           const response = await Axios({
              ...SummaryApi.logout
           })
-          console.log("logout",response)
+
           if(response.data.success){
             if(close){
               close()
@@ -31,7 +31,6 @@ const UserMenu = ({close}) => {
             navigate("/")
           }
         } catch (error) {
-          console.log(error)
           AxiosToastError(error)
         }
    }
@@ -46,7 +45,7 @@ const UserMenu = ({close}) => {
         <div className='font-semibold'>My Account</div>
         <div className='text-sm flex items-center gap-2'>
           <span className='max-w-52 text-ellipsis line-clamp-1 font-normal'>{user.name || user.mobile} <span className='text-medium text-red-600'>{user.role === "ADMIN" ? "(Admin)" : "" }</span></span>
-          <Link onClick={handleClose} to={"/dashboard/profile"} className='hover:text-primary-200'>
+          <Link onClick={handleClose} to={"/dashboard"} className='hover:text-primary-200'>
             <HiOutlineExternalLink size={15}/>
           </Link>
         </div>
@@ -68,7 +67,7 @@ const UserMenu = ({close}) => {
 
             {
               isAdmin(user.role) && (
-                <Link onClick={handleClose} to={"/dashboard/upload-product"} className='px-2 hover:bg-orange-200 py-1 font-normal'>Upload Product</Link>
+                <Link onClick={handleClose} to={"/dashboard/upload-product"} className='px-2 hovemal'>Upload Product</Link>
               )
             }
 
@@ -80,7 +79,7 @@ const UserMenu = ({close}) => {
 
             <Link onClick={handleClose} to={"/dashboard/myorders"} className='px-2 hover:bg-orange-200 py-1 font-normal'>My Orders</Link>
 
-            <Link onClick={handleClose} to={"/dashboard/address"} className='px-2 hover:bg-orange-200 py-1 font-normal'>Save Address</Link>
+            <Link onClick={handleClose} to={"/dashboard/address"} className='px-2 hover:bg-orange-200 py-1 font-normal'>My Address</Link>
 
             <button onClick={handleLogout} className='text-left px-2 hover:bg-orange-200 py-1 font-normal'>Log Out</button>
 
