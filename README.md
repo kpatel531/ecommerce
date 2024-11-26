@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Full Stack E-commerce Application using MERN Stack
+This project is a full-stack e-commerce platform built using the MERN stack **(MongoDB, Express.js, React.js, and Node.js)**. The application supports **cash on delivery** and **Stripe payment gateway** options, and includes an admin panel with enhanced data security features.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Alt text](Thumnails.png?raw=true "Title")
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### User Features
+- **Product Listings:** Browse products with search and filtering options.
+- **User Authentication:** Secure login and signup using JWT.
+- **Shopping Cart:** Add/remove items and adjust quantities.
+- **Checkout:** Seamless checkout process with cash-on-delivery and Stripe payment gateway integration.
+- **Order History:** View previous orders and payment details.
+- **Responsive Design:** Optimized for desktops, tablets, and mobile devices.
 
-### `npm start`
+### Admin Features
+- **Product Management:** Add, edit, and delete products.
+- **Order Management:** View and update order statuses (pending, shipped, delivered).
+- **User Management:** Manage customer accounts.
+- **Secure Admin Panel:** Role-based access with enhanced security for sensitive data.
+- **Sales Analytics:** Dashboard for tracking revenue, orders, and customer trends.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Admin Features
+- **Data Encryption:** Sensitive information is encrypted (e.g., passwords via bcrypt).
+- **Environment Variables:** Secure storage of API keys and database credentials.
+- **Input Validation:** Prevent SQL injection and cross-site scripting (XSS) attacks.
+- **Secure Payments:** Stripe is implemented with tokenization for payment data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
+### Frontend
+- **React.js:** Component-based UI design.
+- **Redux:** State management.
+- **Axios:** API communication.
+- **Material-UI/Bootstrap:** UI components and styling.
 
-### `npm test`
+### Backend
+- **Node.js:** Server-side runtime.
+- **Express.js:** Backend framework.
+- **MongoDB:** NoSQL database for storing data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Tools & Integrations
+- **Stripe API:** Online payment processing.
+- **JWT:** Secure authentication.
+- **Mongoose:** MongoDB object modeling.
+- **dotenv:** Environment variable management.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-repo-name/infinityjewellery.git
+cd infinityjewellery
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Install Dependencies
+Navigate to both the frontend and backend folders and install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Backend
+cd server
+npm install
 
-### `npm run eject`
+# Frontend
+cd client
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Configure Environment Variables
+Create a ```.env``` file in the ```root``` folder and add:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+MONGO_URI=your_mongo_database_uri
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_secret_key
+FRONTEND_URL=http://localhost:5173
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4. Run the Application
+Open two terminals and run:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# Backend
+cd server
+npm run dev
 
-## Learn More
+# Frontend
+cd client
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Future Enhancements
+- Add **product reviews** and ratings.
+- Integrate **email notifications** for orders.
+- Implement **real-time inventory tracking**.
+- Implement admin dashboard for **sales analytics**.
+- Integrate online **stripe payment** for checkout.
+- Implement **customers address** for eCommerce journey.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+# Demo 
+![Alt text](Demo%201.gif?raw=true "demo1")
+![Alt text](Demo%202.gif?raw=true "demo2")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributing
+Contributions are welcome! Please fork this repository and submit a pull request for any new features or bug fixes.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Happy Coding!** 🎉

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import banner from '../assets/banner.jpg'
 import bannerMobile from '../assets/banner-mobile.jpg'
 import { useSelector } from 'react-redux'
@@ -11,6 +11,10 @@ const Home = () => {
   const categoryData = useSelector(state => state.product.allCategory)
   const subCategoryData = useSelector(state => state.product.allSubCategory)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate("/")
+  }, []);
 
   const handleRedirectProductListpage = (id,cat)=>{
       console.log(id,cat)
@@ -29,7 +33,7 @@ const Home = () => {
 
 
   return (
-   <section className='bg-white'>
+   <section className='bg-white pb-8'>
       <div className='container mx-auto'>
           <div className={`w-full h-full min-h-48 bg-blue-100 rounded ${!banner && "animate-pulse my-2" } `}>
               <img

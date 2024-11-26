@@ -24,13 +24,11 @@ const CardProduct = ({data}) => {
             />
       </div>
       <div className='flex items-center gap-1'>
-        <div className='rounded text-xs w-fit p-[1px] px-2 text-green-600 bg-green-50'>
-              10 min 
-        </div>
+        <div className='rounded text-xs w-fit p-[1px] px-2 text-green-600 bg-green-100 font-normal'>10 min</div>
         <div>
             {
               Boolean(data.discount) && (
-                <p className='text-green-600 bg-green-100 px-2 w-fit text-xs rounded-full'>{data.discount}% discount</p>
+                <p className='text-green-600 bg-green-100 px-2 w-fit text-xs rounded-full font-normal'>{data.discount}% discount</p>
               )
             }
         </div>
@@ -38,9 +36,8 @@ const CardProduct = ({data}) => {
       <div className='px-2 lg:px-0 font-medium text-ellipsis text-sm lg:text-base line-clamp-2'>
         {data.name}
       </div>
-      <div className='w-fit gap-1 px-2 lg:px-0 text-sm lg:text-base'>
-        {data.unit} 
-        
+      <div className='w-fit gap-1 px-2 lg:px-0 text-sm lg:text-base font-normal'>
+        <strong>Unit: </strong>#{data.unit} 
       </div>
 
       <div className='px-2 lg:px-0 flex items-center justify-between gap-1 lg:gap-3 text-sm lg:text-base'>
