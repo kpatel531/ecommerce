@@ -63,19 +63,19 @@ const router = createBrowserRouter([
             },
             {
                 path : "dashboard",
-                element : <Dashboard/>,
+                element : <AdminPermision><Dashboard/></AdminPermision>,
                 children : [
                     {
                         path : "profile",
-                        element : <Profile/>
+                        element : <AdminPermision><Profile/></AdminPermision>
                     },
                     {
                         path : "myorders",
-                        element : <MyOrders/>
+                        element : <AdminPermision><MyOrders/></AdminPermision>
                     },
                     {
                         path : "address",
-                        element : <Address/>
+                        element : <AdminPermision><Address/></AdminPermision>
                     },
                     {
                         path : 'category',

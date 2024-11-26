@@ -18,7 +18,7 @@ const AddToCartButton = ({ data }) => {
     const [qty, setQty] = useState(0)
     const [cartItemDetails,setCartItemsDetails] = useState()
 
-    const handleADDTocart = async (e) => {
+    const handleAddTocart = async (e) => {
         e.preventDefault()
         e.stopPropagation()
 
@@ -95,8 +95,8 @@ const AddToCartButton = ({ data }) => {
                         <button onClick={increaseQty} className='bg-green-600 hover:bg-green-700 text-white flex-1 w-full p-1 rounded flex items-center justify-center'><FaPlus /></button>
                     </div>
                 ) : (
-                    <button onClick={handleADDTocart} className='bg-green-600 hover:bg-green-700 text-white px-2 py-1 w-full rounded font-normal'>
-                        {loading ? <Loading /> : <span className='flex-1 flex w-full'><BsCart4 size={25} /> Add to Cart</span>}
+                    <button onClick={handleAddTocart} className='bg-green-600 hover:bg-green-700 text-white px-2 py-1 w-full rounded font-normal'>
+                        {loading ? <Loading /> : <span className='flex-1 flex w-full'><BsCart4 size={23} /> Add to Cart</span>}
                     </button>
                 )
             }
