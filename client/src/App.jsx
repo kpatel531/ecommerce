@@ -71,12 +71,19 @@ function App() {
   },[])
 
   return (
-    <GlobalProvider> 
-      <Header/>
-      <main className='min-h-[80vh]'>
+    <GlobalProvider>
+      <div className='flex flex-col min-h-screen'>
+        {/* Header */}
+        <Header/>
+
+        {/* Main content */}
+        <main className='flex-grow bg-white p-4'>
           <Outlet/>
-      </main>
-      <Footer/>
+        </main>
+
+        {/* Footer */}
+        <Footer/>
+      </div>
       <Toaster
         toastOptions={{
           style: {
