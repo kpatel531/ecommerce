@@ -44,7 +44,6 @@ export const getAddressController = async(request,response)=>{
         const userId = request.userId // middleware auth
 
         const data = await AddressModel.find({ userId : userId }).sort({ createdAt : -1})
-
         return response.json({
             data : data,
             message : "List of address",
@@ -113,3 +112,22 @@ export const deleteAddresscontroller = async(request,response)=>{
     }
 }
 
+export const getOrderAddressController = async(request,response)=>{
+    try {
+        const addressId = request.addressId
+
+        const data = await AddressModel.find({ delivery_address : addressId }).sort({ createdAt : -1})
+        return response.json({
+            data : data,
+            message : "Order address",
+            error : false,
+            success : true
+        })
+    } catch (error) {
+        return response.status(500).json({
+            message : error.message || error ,
+            error : true,
+            success : false
+        })
+    }
+}

@@ -1,50 +1,51 @@
 import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
-    userId: [
-        {
-            type: mongoose.Schema.ObjectId,
-            ref: 'User'
-        }
-    ],
-    orderId: {
-        type: String,
-        required: [true, "Provide orderId"],
-        unique: true
+    userId : {
+        type : mongoose.Schema.ObjectId,
+        ref : 'User'
     },
-    productId: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'product'
+    orderId : {
+        type : String,
+        required : [true, "Provide orderId"],
+        unique : true
     },
-    product_details: {
-        name: String,
-        image: String
+    productId : {
+        type : mongoose.Schema.ObjectId,
+        ref : "product"
     },
-    paymentId: {
-        type: String
+    product_details : {
+        name : String,
+        image : Array,
     },
-    payment_status: {
-        type: String
+    paymentId : {
+        type : String,
+        default : ""
     },
-    delivery_address: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'address'
+    payment_status : {
+        type : String,
+        default : ""
     },
-    subTotalAmt: {
-        type: Number,
-        default: 0
+    delivery_address : {
+        type : mongoose.Schema.ObjectId,
+        ref : 'address'
     },
-    totalAmt: {
-        type: Number,
-        default: 0
+    subTotalAmt : {
+        type : Number,
+        default : 0
     },
-    invoice_receipt: {
-        type: String
+    totalAmt : {
+        type : Number,
+        default : 0
+    },
+    invoice_receipt : {
+        type : String,
+        default : ""
     }
-}, {
-    timestamps: true
+},{
+    timestamps : true
 })
 
-const OrderModel = mongoose.model('order', orderSchema)
+const OrderModel = mongoose.model('order',orderSchema)
 
 export default OrderModel
