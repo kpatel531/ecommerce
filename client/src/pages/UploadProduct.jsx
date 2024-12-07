@@ -111,7 +111,6 @@ const UploadProduct = () => {
 
   const handleSubmit = async(e)=>{
     e.preventDefault()
-    console.log("data",data)
 
     try {
       const response = await Axios({
@@ -163,7 +162,7 @@ const UploadProduct = () => {
                     value={data.name}
                     onChange={handleChange}
                     required
-                    className='bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
+                    className='font-normal bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
                   />
                 </div>
                 <div className='grid gap-1'>
@@ -178,7 +177,7 @@ const UploadProduct = () => {
                     required
                     multiple 
                     rows={3}
-                    className='bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded resize-none'
+                    className='font-normal bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded resize-none'
                   />
                 </div>
                 <div>
@@ -190,7 +189,7 @@ const UploadProduct = () => {
                               imageLoading ?  <Loading/> : (
                                 <>
                                    <FaCloudUploadAlt size={35}/>
-                                   <p>Upload Image</p>
+                                   <p className='font-normal'>Upload Image</p>
                                 </>
                               )
                             }
@@ -230,7 +229,7 @@ const UploadProduct = () => {
                   <label className='font-medium'>Category</label>
                   <div>
                     <select
-                      className='bg-blue-50 border w-full p-2 rounded'
+                      className='font-normal bg-blue-50 border w-full p-2 rounded'
                       value={selectCategory}
                       onChange={(e)=>{
                         const value = e.target.value 
@@ -259,7 +258,7 @@ const UploadProduct = () => {
                         data.category.map((c,index)=>{
                           return(
                             <div key={c._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
-                              <p>{c.name}</p>
+                              <p className='font-normal'>{c.name}</p>
                               <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveCategory(index)}>
                                 <IoClose size={20}/>
                               </div>
@@ -274,7 +273,7 @@ const UploadProduct = () => {
                   <label className='font-medium'>Sub Category</label>
                   <div>
                     <select
-                      className='bg-blue-50 border w-full p-2 rounded'
+                      className='font-normal bg-blue-50 border w-full p-2 rounded'
                       value={selectSubCategory}
                       onChange={(e)=>{
                         const value = e.target.value 
@@ -303,7 +302,7 @@ const UploadProduct = () => {
                         data.subCategory.map((c,index)=>{
                           return(
                             <div key={c._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
-                              <p>{c.name}</p>
+                              <p className='font-normal'>{c.name}</p>
                               <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveSubCategory(index)}>
                                 <IoClose size={20}/>
                               </div>
@@ -325,7 +324,7 @@ const UploadProduct = () => {
                     value={data.unit}
                     onChange={handleChange}
                     required
-                    className='bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
+                    className='font-normal bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
                   />
                 </div>
 
@@ -339,7 +338,7 @@ const UploadProduct = () => {
                     value={data.stock}
                     onChange={handleChange}
                     required
-                    className='bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
+                    className='font-normal bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
                   />
                 </div>
 
@@ -353,7 +352,7 @@ const UploadProduct = () => {
                     value={data.price}
                     onChange={handleChange}
                     required
-                    className='bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
+                    className='font-normal bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
                   />
                 </div>
 
@@ -367,7 +366,7 @@ const UploadProduct = () => {
                     value={data.discount}
                     onChange={handleChange}
                     required
-                    className='bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
+                    className='font-normal bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
                   />
                 </div>
 

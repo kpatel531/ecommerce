@@ -45,8 +45,8 @@ const DisplayCartItem = ({close}) => {
                     cartItem[0] ? (
                         <>
                             <div className='flex items-center justify-between px-4 py-2 bg-blue-100 text-blue-500 rounded-full'>
-                                    <p>Your total savings</p>
-                                    <p>{DisplayPriceInRupees(notDiscountTotalPrice - totalPrice )}</p>
+                                    <p className='font-normal'>Your total savings</p>
+                                    <p className='font-normal'>{DisplayPriceInRupees(notDiscountTotalPrice - totalPrice )}</p>
                             </div>
                             <div className='bg-white rounded-lg p-4 grid gap-5 overflow-auto'>
                                     {
@@ -61,8 +61,8 @@ const DisplayCartItem = ({close}) => {
                                                             />
                                                         </div>
                                                         <div className='w-full max-w-sm text-xs'>
-                                                            <p className='text-xs text-ellipsis line-clamp-2'>{item?.productId?.name}</p>
-                                                            <p className='text-neutral-400'>{item?.productId?.unit}</p>
+                                                            <p className='font-normal text-xs text-ellipsis line-clamp-2'>{item?.productId?.name}</p>
+                                                            <p className='font-normal text-neutral-400'>{item?.productId?.unit}</p>
                                                             <p className='font-semibold'>{DisplayPriceInRupees(pricewithDiscount(item?.productId?.price,item?.productId?.discount))}</p>
                                                         </div>
                                                         <div>
@@ -77,16 +77,16 @@ const DisplayCartItem = ({close}) => {
                             <div className='bg-white p-4'>
                                 <h3 className='font-semibold'>Bill details</h3>
                                 <div className='flex gap-4 justify-between ml-1'>
-                                    <p>Items total</p>
-                                    <p className='flex items-center gap-2'><span className='line-through text-neutral-400'>{DisplayPriceInRupees(notDiscountTotalPrice)}</span><span>{DisplayPriceInRupees(totalPrice)}</span></p>
+                                    <p className='font-normal'>Items total</p>
+                                    <p className='font-normal flex items-center gap-2'><span className='line-through text-neutral-400'>{DisplayPriceInRupees(notDiscountTotalPrice)}</span><span>{DisplayPriceInRupees(totalPrice)}</span></p>
                                 </div>
                                 <div className='flex gap-4 justify-between ml-1'>
-                                    <p>Quantity total</p>
-                                    <p className='flex items-center gap-2'>{totalQty} item</p>
+                                    <p className='font-normal'>Quantity total</p>
+                                    <p className='font-normal flex items-center gap-2'>{totalQty} item</p>
                                 </div>
                                 <div className='flex gap-4 justify-between ml-1'>
-                                    <p>Delivery Charge</p>
-                                    <p className='flex items-center gap-2'>Free</p>
+                                    <p className='font-normal'>Delivery Charge</p>
+                                    <p className='font-normal flex items-center gap-2'>Free</p>
                                 </div>
                                 <div className='font-semibold flex items-center justify-between gap-4'>
                                     <p >Grand total</p>

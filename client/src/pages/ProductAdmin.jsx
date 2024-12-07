@@ -80,12 +80,12 @@ const ProductAdmin = () => {
     <section className=''>
         <div className='p-2  bg-white shadow-md flex items-center justify-between gap-4'>
                 <h2 className='font-semibold'>Product</h2>
-                <div className='h-full min-w-24 max-w-56 w-full ml-auto bg-blue-50 px-4 flex items-center gap-3 py-2 rounded  border focus-within:border-primary-200'>
+                <div className='h-full min-w-24 max-w-64 w-full ml-auto bg-blue-50 px-4 flex items-center gap-3 py-2 rounded  border focus-within:border-primary-200'>
                   <IoSearchOutline size={25}/>
                   <input
                     type='text'
                     placeholder='Search product here ...' 
-                    className='h-full w-full  outline-none bg-transparent'
+                    className='h-full w-full font-normal outline-none bg-transparent'
                     value={search}
                     onChange={handleOnChange}
                   />
@@ -97,16 +97,13 @@ const ProductAdmin = () => {
           )
         }
 
-
         <div className='p-4 bg-blue-50'>
-
-
             <div className='min-h-[55vh]'>
-              <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4'>
+              <div key="group" className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4'>
                 {
                   productData.map((p,index)=>{
                     return(
-                      <ProductCardAdmin data={p} fetchProductData={fetchProductData}  />
+                      <ProductCardAdmin data={p} index={index} fetchProductData={fetchProductData} />
                     )
                   })
                 }
@@ -114,15 +111,11 @@ const ProductAdmin = () => {
             </div>
             
             <div className='flex justify-between my-4'>
-              <button onClick={handlePrevious} className="border border-primary-200 px-4 py-1 hover:bg-primary-200">Previous</button>
+              <button onClick={handlePrevious} className="font-normal hover:text-white border border-primary-200 px-4 py-1 hover:bg-primary-200">Previous</button>
               <button className='w-full bg-slate-100'>{page}/{totalPageCount}</button>
-              <button onClick={handleNext} className="border border-primary-200 px-4 py-1 hover:bg-primary-200">Next</button>
+              <button onClick={handleNext} className="font-normal hover:text-white border border-primary-200 px-4 py-1 hover:bg-primary-200">Next</button>
             </div>
-
         </div>
-          
-
-      
     </section>
   )
 }

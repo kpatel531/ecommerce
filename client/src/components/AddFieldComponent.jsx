@@ -12,14 +12,14 @@ const AddFieldComponent = ({close,value,onChange,submit}) => {
                 </button>
             </div>
             <input
-                 className='bg-blue-50 my-3 p-2 border outline-none focus-within:border-primary-100 rounded w-full '
+                 className='font-normal bg-blue-50 my-3 p-2 border outline-none focus-within:border-primary-100 rounded w-full '
                  placeholder='Enter field name'
                  value={value}
                  onChange={onChange}
             />
             <button
                 onClick={submit}
-                className='bg-primary-200 hover:bg-primary-100 px-4 py-2 rounded mx-auto w-fit block'
+                className='font-normal bg-primary-200 hover:bg-primary-100 px-4 py-2 rounded mx-auto w-fit block'
             >Add Field</button>
         </div>
    </section>

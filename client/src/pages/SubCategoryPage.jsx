@@ -53,12 +53,18 @@ const SubCategoryPage = () => {
 
   const column = [
     columnHelper.accessor('name',{
-      header : "Name"
+      header : "Name",
+      cell : ({row})=>{
+       return(
+         <>
+          <p className='font-normal'>{row.original.name}</p>
+         </>
+       )
+      }
     }),
     columnHelper.accessor('image',{
       header : "Image",
       cell : ({row})=>{
-        console.log("row",)
         return <div className='flex justify-center items-center'>
             <img 
                 src={row.original.image}
@@ -66,7 +72,7 @@ const SubCategoryPage = () => {
                 className='w-8 h-8 cursor-pointer'
                 onClick={()=>{
                   setImageURL(row.original.image)
-                }}      
+                }}
             />
         </div>
       }
@@ -79,7 +85,7 @@ const SubCategoryPage = () => {
             {
               row.original.category.map((c,index)=>{
                 return(
-                  <p key={c._id+"table"} className='shadow-md px-1 inline-block'>{c.name}</p>
+                  <p key={c._id+"table"} className='font-normal shadow-md px-1 inline-block'>{c.name}</p>
                 )
               })
             }
@@ -133,7 +139,7 @@ const SubCategoryPage = () => {
     <section className=''>
         <div className='p-2   bg-white shadow-md flex items-center justify-between'>
             <h2 className='font-semibold'>Sub Category</h2>
-            <button onClick={()=>setOpenAddSubCategory(true)} className='text-sm border border-primary-200 hover:bg-primary-200 px-3 py-1 rounded'>Add Sub Category</button>
+            <button onClick={()=>setOpenAddSubCategory(true)} className='font-medium text-sm border border-primary-200 hover:bg-primary-200 px-3 py-1 rounded'>Add Sub Category</button>
         </div>
 
         <div className='overflow-auto w-full max-w-[95vw]'>
