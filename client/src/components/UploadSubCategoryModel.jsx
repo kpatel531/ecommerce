@@ -66,7 +66,6 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
 
             const { data : responseData } = response
 
-            console.log("responseData",responseData)
             if(responseData.success){
                 toast.success(responseData.message)
                 if(close){
@@ -93,22 +92,22 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
             </div>
             <form className='my-3 grid gap-3' onSubmit={handleSubmitSubCategory}>
                     <div className='grid gap-1'>
-                        <label htmlFor='name'>Name</label>
+                        <label htmlFor='name' className='font-medium'>Name</label>
                         <input 
                             id='name'
                             name='name'
                             value={subCategoryData.name}
                             onChange={handleChange}
-                            className='p-3 bg-blue-50 border outline-none focus-within:border-primary-200 rounded '
+                            className='font-normal p-3 bg-blue-50 border outline-none focus-within:border-primary-200 rounded '
                         />
                     </div>
                     <div className='grid gap-1'>
-                        <p>Image</p>
+                        <p className='font-medium'>Image</p>
                         <div className='flex flex-col lg:flex-row items-center gap-3'>
                             <div className='border h-36 w-full lg:w-36 bg-blue-50 flex items-center justify-center'>
                                 {
                                     !subCategoryData.image ? (
-                                        <p className='text-sm text-neutral-400'>No Image</p>
+                                        <p className='font-normal text-sm text-neutral-400'>No Image</p>
                                     ) : (
                                         <img
                                             alt='subCategory'
@@ -119,7 +118,7 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
                                 }
                             </div>
                             <label htmlFor='uploadSubCategoryImage'>
-                                <div className='px-4 py-1 border border-primary-100 text-primary-200 rounded hover:bg-primary-200 hover:text-neutral-900 cursor-pointer  '>
+                                <div className='font-medium px-4 py-1 border border-primary-100 text-primary-200 rounded hover:bg-primary-200 hover:text-neutral-900 cursor-pointer  '>
                                     Upload Image
                                 </div>
                                 <input 
@@ -133,7 +132,7 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
                         </div>
                     </div>
                     <div className='grid gap-1'>
-                        <label>Select Category</label>
+                        <label className='font-medium'>Select Category</label>
                         <div className='border focus-within:border-primary-200 rounded'>
                             {/*display value**/}
                             <div className='flex flex-wrap gap-2'>

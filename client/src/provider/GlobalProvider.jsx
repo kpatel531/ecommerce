@@ -1,4 +1,3 @@
-
 import { createContext,useContext, useEffect, useState } from "react";
 import Axios from "../utils/Axios";
 import SummaryApi from "../common/SummaryApi";
@@ -31,7 +30,6 @@ const GlobalProvider = ({children}) => {
     
           if(responseData.success){
             dispatch(handleAddItemCart(responseData.data))
-            console.log(responseData)
           }
     
         } catch (error) {
@@ -117,6 +115,22 @@ const GlobalProvider = ({children}) => {
           // AxiosToastError(error)
       }
     }
+
+    const fetchOrderAddress = async()=>{
+      try {
+        const response = await Axios({
+          ...SummaryApi.getOrderAddress
+        })
+        const { data : responseData } = response
+
+        if(responseData.success){
+          dispatch(handleAddAddress(responseData.data))
+        }
+      } catch (error) {
+          // AxiosToastError(error)
+      }
+    }
+
     const fetchOrder = async()=>{
       try {
         const response = await Axios({
@@ -136,6 +150,7 @@ const GlobalProvider = ({children}) => {
       fetchCartItem()
       handleLogoutOut()
       fetchAddress()
+      fetchOrderAddress()
       fetchOrder()
     },[user])
     
@@ -148,6 +163,7 @@ const GlobalProvider = ({children}) => {
             totalPrice,
             totalQty,
             notDiscountTotalPrice,
+            fetchOrderAddress,
             fetchOrder
         }}>
             {children}

@@ -75,7 +75,7 @@ const CategoryPage = () => {
     <section className=''>
         <div className='p-2   bg-white shadow-md flex items-center justify-between'>
             <h2 className='font-semibold'>Category</h2>
-            <button onClick={()=>setOpenUploadCategory(true)} className='text-sm border border-primary-200 hover:bg-primary-200 px-3 py-1 rounded'>Add Category</button>
+            <button onClick={()=>setOpenUploadCategory(true)} className='font-medium text-sm border border-primary-200 hover:bg-primary-200 px-3 py-1 rounded'>Add Category</button>
         </div>
         {
             !categoryData[0] && !loading && (
@@ -87,7 +87,7 @@ const CategoryPage = () => {
             {
                 categoryData.map((category,index)=>{
                     return(
-                        <div className='w-32 h-56 rounded shadow-md' key={category._id}>
+                        <div className='w-33 h-57 p-3 rounded shadow-md' key={category._id}>
                             <img 
                                 alt={category.name}
                                 src={category.image}

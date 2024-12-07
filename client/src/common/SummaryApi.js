@@ -133,6 +133,10 @@ const SummaryApi = {
         url : '/api/address/get',
         method : 'get'
     },
+    getOrderAddress : {
+        url : '/api/address/get/order',
+        method : 'get'
+    },
     updateAddress : {
         url : '/api/address/update',
         method : 'put'

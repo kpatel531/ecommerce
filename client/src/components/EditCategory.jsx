@@ -76,7 +76,7 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
         </div>
         <form className='my-3 grid gap-2' onSubmit={handleSubmit}>
             <div className='grid gap-1'>
-                <label id='categoryName'>Name</label>
+                <label id='categoryName' className='font-medium'>Name</label>
                 <input
                     type='text'
                     id='categoryName'
@@ -84,11 +84,11 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
                     value={data.name}
                     name='name'
                     onChange={handleOnChange}
-                    className='bg-blue-50 p-2 border border-blue-100 focus-within:border-primary-200 outline-none rounded'
+                    className='font-normal bg-blue-50 p-2 border border-blue-100 focus-within:border-primary-200 outline-none rounded'
                 />
             </div>
             <div className='grid gap-1'>
-                <p>Image</p>
+                <p className='font-medium'>Image</p>
                 <div className='flex gap-4 flex-col lg:flex-row items-center'>
                     <div className='border bg-blue-50 h-36 w-full lg:w-36 flex items-center justify-center rounded'>
                         {
@@ -107,7 +107,7 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
                     <label htmlFor='uploadCategoryImage'>
                         <div  className={`
                         ${!data.name ? "bg-gray-300" : "border-primary-200 hover:bg-primary-100" }  
-                            px-4 py-2 rounded cursor-pointer border font-medium
+                            px-4 py-2 rounded cursor-pointer border font-medium hover:text-white
                         `}>
                             {
                                 loading ? "Loading..." : "Upload Image"
@@ -125,7 +125,7 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
                 className={`
                 ${data.name && data.image ? "bg-primary-200 hover:bg-primary-100" : "bg-gray-300 "}
                 py-2    
-                font-semibold 
+                font-semibold hover:text-white
                 `}
             >Update Category</button>
         </form>
