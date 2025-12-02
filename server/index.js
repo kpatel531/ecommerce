@@ -5,8 +5,8 @@ dotenv.config();
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import connectDB from './config/connectDB.js';
 
+import connectDB from './config/connectDB.js';
 import userRouter from './route/user.route.js';
 import categoryRouter from './route/category.route.js';
 import uploadRouter from './route/upload.router.js';
@@ -18,24 +18,40 @@ import orderRouter from './route/order.route.js';
 
 const app = express();
 
-// ✅ CORS at the top + preflight
+// ✅ CORS configuration
+const allowedOrigins = [
+  'http://localhost:3000',              // local dev
+  'https://megamartdemo.vercel.app'     // production frontend
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
+
+// ✅ Handle preflight requests
 app.options('*', cors());
 
+// ✅ Other middleware
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(helmet({ crossOriginResourcePolicy: false }));
 
+// ✅ Port setup
 const PORT = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   res.json({ message: "Server is running on " + PORT });
 });
 
+// ✅ Routes
 app.use('/api/user', userRouter);
 app.use("/api/category", categoryRouter);
 app.use("/api/file", uploadRouter);
@@ -45,8 +61,9 @@ app.use("/api/cart", cartRouter);
 app.use("/api/address", addressRouter);
 app.use('/api/order', orderRouter);
 
+// ✅ Connect DB and start server
 connectDB().then(() => {
   app.listen(PORT, () => {
-    console.log("Server is running", PORT);
+    console.log("Server is running on port", PORT);
   });
 });
