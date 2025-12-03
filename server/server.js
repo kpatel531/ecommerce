@@ -18,18 +18,16 @@ import orderRouter from './route/order.route.js';
 
 const app = express();
 
-/**
 const coreOptions = {
   origin: process.env.FRONTEND_URL,
-  methods: ['GET', 'POST'],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }
 
 app.use(cors(coreOptions));
-*/
+app.options("*", cors(coreOptions));
 
-app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
