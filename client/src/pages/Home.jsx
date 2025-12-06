@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react'
-import banner from '../assets/mainbanner.png'
-import bannerMobile from '../assets/banner-mobile.jpg'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination, Autoplay, EffectFade, Navigation } from 'swiper/modules'
+import banner1 from '../assets/mainbanner.png'
+import banner2 from '../assets/banner2.png'
+import banner3 from '../assets/banner3.png'
+import bannerMobile1 from '../assets/main-mobile-banner.png'
+import bannerMobile2 from '../assets/main-mobile-banner.png'
+import bannerMobile3 from '../assets/main-mobile-banner.png'
+
 import { useSelector } from 'react-redux'
 import { valideURLConvert } from '../utils/valideURLConvert'
-import {Link, useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import CategoryWiseProductDisplay from '../components/CategoryWiseProductDisplay'
 
 const Home = () => {
@@ -14,84 +21,98 @@ const Home = () => {
 
   useEffect(() => {
     navigate("/")
-  }, []);
+  }, [navigate])
 
-  const handleRedirectProductListpage = (id,cat)=>{
-      const subcategory = subCategoryData.find(sub =>{
-        const filterData = sub.category.some(c => {
-          return c._id == id
-        })
+  const handleRedirectProductListpage = (id, cat) => {
+    const subcategory = subCategoryData.find(sub => {
+      const filterData = sub.category.some(c => c._id === id)
+      return filterData ? true : null
+    })
 
-        return filterData ? true : null
-      })
-      const url = `/${valideURLConvert(cat)}-${id}/${valideURLConvert(subcategory.name)}-${subcategory._id}`
-
-      navigate(url)
+    const url = `/${valideURLConvert(cat)}-${id}/${valideURLConvert(subcategory.name)}-${subcategory._id}`
+    navigate(url)
   }
 
+  // Banner data
+  const banners = [
+    { desktop: banner1, mobile: bannerMobile1 },
+    { desktop: banner2, mobile: bannerMobile2 },
+    { desktop: banner3, mobile: bannerMobile3 },
+  ]
 
   return (
-   <section className='bg-white pb-8'>
-      <div className='container mx-auto'>
-          <div className={`w-full h-full min-h-48 bg-blue-100 rounded ${!banner && "animate-pulse my-2" } `}>
+    <section className="bg-white pb-8">
+      {/* Banner Slider */}
+      <div className="container mx-auto px-4">
+        <Swiper
+          modules={[Pagination, Autoplay, EffectFade, Navigation]}
+          effect='fade'
+          navigation={false}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 2000 }}
+          speed={2700}
+          loop={true}
+          className="w-full rounded overflow-hidden mySwiper"
+        >
+          {banners.map((b, index) => (
+            <SwiperSlide key={index}>
+              {/* Desktop banner */}
               <img
-                src={banner}
-                className='w-full h-full hidden lg:block'
-                alt='banner' 
+                src={b.desktop}
+                alt={`desktop banner ${index}`}
+                className="hidden lg:block w-full object-cover max-h-[500px]"
               />
+              {/* Mobile banner */}
               <img
-                src={bannerMobile}
-                className='w-full h-full lg:hidden'
-                alt='banner' 
+                src={b.mobile}
+                alt={`mobile banner ${index}`}
+                className="block lg:hidden w-full object-cover max-h-[300px]"
               />
-          </div>
-      </div>
-      
-      <div className='container mx-auto px-4 my-2 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2'>
-          {
-            loadingCategory ? (
-              new Array(12).fill(null).map((c,index)=>{
-                return(
-                  <div key={index+"loadingcategory"} className='bg-white rounded p-4 min-h-36 grid gap-2 shadow animate-pulse'>
-                    <div className='bg-blue-100 min-h-24 rounded'></div>
-                    <div className='bg-blue-100 h-8 rounded'></div>
-                  </div>
-                )
-              })
-            ) : (
-              categoryData.map((cat,index)=>{
-                return(
-                  <div key={cat._id+"displayCategory"} className='w-full h-full' onClick={()=>handleRedirectProductListpage(cat._id,cat.name)}>
-                    <div>
-                        <img 
-                          src={cat.image}
-                          className='w-full h-full object-scale-down'
-                        />
-                    </div>
-                  </div>
-                )
-              })
-              
-            )
-          }
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
-      {/***display category product */}
-      {
-        categoryData?.map((c,index)=>{
-          return(
-            <CategoryWiseProductDisplay 
-              key={c?._id+"CategorywiseProduct"} 
-              id={c?._id} 
-              name={c?.name}
-            />
-          )
-        })
-      }
+      {/* Category grid */}
+      <div className="container mx-auto px-4 my-4 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-2">
+        {loadingCategory ? (
+          new Array(12).fill(null).map((_, index) => (
+            <div
+              key={index + "loadingcategory"}
+              className="bg-white rounded p-4 min-h-36 grid gap-2 shadow animate-pulse"
+            >
+              <div className="bg-blue-100 min-h-24 rounded"></div>
+              <div className="bg-blue-100 h-8 rounded"></div>
+            </div>
+          ))
+        ) : (
+          categoryData.map(cat => (
+            <div
+              key={cat._id + "displayCategory"}
+              className="w-full h-full cursor-pointer"
+              onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
+            >
+              <div>
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="w-full h-full object-scale-down"
+                />
+              </div>
+            </div>
+          ))
+        )}
+      </div>
 
-
-
-   </section>
+      {/* Category-wise product display */}
+      {categoryData?.map(c => (
+        <CategoryWiseProductDisplay
+          key={c?._id + "CategorywiseProduct"}
+          id={c?._id}
+          name={c?.name}
+        />
+      ))}
+    </section>
   )
 }
 
