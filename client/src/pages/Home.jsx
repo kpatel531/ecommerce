@@ -33,7 +33,6 @@ const Home = () => {
     navigate(url)
   }
 
-  // Banner data
   const banners = [
     { desktop: banner1, mobile: bannerMobile1 },
     { desktop: banner2, mobile: bannerMobile2 },

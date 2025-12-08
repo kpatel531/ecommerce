@@ -6,11 +6,19 @@ export default {
   ],
   theme: {
     extend: {
-      colors : {
-        "primary-200" : "#ffbf00",
-        "primary-100" : "#ffc929",
-        "secondary-200" : "#00b050",
-        "secondary-100" : "#0b1a78"
+      colors: {
+        // Primary brand colors
+        "primary-100": "#00b4db",
+        "primary-200": "#0083b0",
+
+        // Secondary accent colors
+        "secondary-100": "#00c96b",
+        "secondary-200": "#009e4e",
+
+        // Optional neutrals for text/background
+        "neutral-100": "#f5f5f5",
+        "neutral-500": "#6b7280",
+        "neutral-900": "#1f2937"
       }
     },
   },
