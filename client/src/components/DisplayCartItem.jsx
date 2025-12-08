@@ -39,7 +39,7 @@ const DisplayCartItem = ({close}) => {
                 </button>
             </div>
 
-            <div className='min-h-[75vh] lg:min-h-[80vh] h-full max-h-[calc(100vh-150px)] bg-blue-50 p-2 flex flex-col gap-4'>
+            <div className='min-h-[75vh] lg:min-h-[80vh] h-full max-h-[calc(100vh-150px)] bg-white-50 p-2 flex flex-col gap-4'>
                 {/***display items */}
                 {
                     cartItem[0] ? (

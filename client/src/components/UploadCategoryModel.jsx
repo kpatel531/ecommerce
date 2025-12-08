@@ -100,7 +100,7 @@ const UploadCategoryModel = ({close, fetchData}) => {
                                         className='w-full h-full object-scale-down'
                                     />
                                 ) : (
-                                    <p className='text-sm text-neutral-500'>No Image</p>
+                                    <p className='text-sm text-neutral-500 font-medium'>No Image</p>
                                 )
                             }
                             

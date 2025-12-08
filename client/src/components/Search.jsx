@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
 import { FaArrowLeft } from "react-icons/fa";
 import useMobile from '../hooks/useMobile';
+import { useSelector } from 'react-redux'
 
 
 const Search = () => {
@@ -13,6 +14,7 @@ const Search = () => {
     const [ isMobile ] = useMobile()
     const params = useLocation()
     const searchText = params.search.slice(3)
+    const categoryData = useSelector(state => state.product.allCategory)
 
     useEffect(()=>{
         const isSearch = location.pathname === "/search"
@@ -48,40 +50,48 @@ const Search = () => {
         <div className='w-full h-full'>
             {
                 !isSearchPage ? (
-                     //not in search page
-                     <div onClick={redirectToSearchPage} className='w-full h-full flex items-center'>
-                        <TypeAnimation
+                    <div onClick={redirectToSearchPage} className='w-full h-full flex items-center'>
+                        {/* {categoryData.length ? (
+                            <TypeAnimation
                                 sequence={[
-                                    'Search "milk"',
-                                    1000,
-                                    'Search "bread"',
-                                    1000,
-                                    'Search "sugar"',
-                                    1000,
-                                    'Search "panner"',
-                                    1000,
-                                    'Search "chocolate"',
-                                    1000,
-                                    'Search "curd"',
-                                    1000,
-                                    'Search "rice"',
-                                    1000,
-                                    'Search "egg"',
-                                    1000,
-                                    'Search "chips"',
+                                    categoryData.map(cat => (
+                                        `Search products for "${cat.name}"`,
+                                        1000
+                                    ))
                                 ]}
                                 wrapper="span"
                                 speed={20}
                                 style={{fontWeight: '300'}}
                                 repeat={Infinity}
                             />
-                     </div>
+                        ) : (
+                            <TypeAnimation
+                                sequence={[
+                                    `Search For "All Products"`,
+                                    1000
+                                ]}
+                                wrapper="span"
+                                speed={20}
+                                style={{fontWeight: '300'}}
+                                repeat={Infinity}
+                            />
+                        )} */}
+                        <TypeAnimation
+                            sequence={[
+                                `Search For "All Products"`,
+                                1000
+                            ]}
+                            wrapper="span"
+                            speed={20}
+                            style={{fontWeight: '300'}}
+                            repeat={Infinity}
+                        />
+                    </div>
                 ) : (
-                    //when i was search page
                     <div className='w-full h-full'>
                         <input
                             type='text'
-                            placeholder='Search for pets and more.'
+                            placeholder='Search for products.'
                             autoFocus
                             defaultValue={searchText}
                             className='bg-transparent w-full h-full outline-none font-light'
