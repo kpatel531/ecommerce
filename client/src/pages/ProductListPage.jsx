@@ -91,7 +91,7 @@ const ProductListPage = () => {
                       className=' w-14 lg:h-14 lg:w-12 h-full object-scale-down'
                     />
                   </div>
-                  <p className='-mt-6 lg:mt-0 text-xs text-center lg:text-left lg:text-base'>{s.name}</p>
+                  <p className='-mt-6 lg:mt-0 text-xs text-center lg:text-left lg:text-base font-medium'>{s.name}</p>
                 </Link>
               )
             })
