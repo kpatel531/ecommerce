@@ -394,7 +394,7 @@ const UploadProduct = () => {
                                   })
                               }}
                               required
-                              className='bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
+                              className='font-normal bg-blue-50 p-2 outline-none border focus-within:border-primary-200 rounded'
                             />
                           </div>
                         )
@@ -405,9 +405,7 @@ const UploadProduct = () => {
                   Add Fields
                 </div>
 
-                <button
-                  className='bg-primary-100 hover:bg-primary-200 py-2 rounded font-semibold'
-                >
+                <button className='bg-primary-100 hover:bg-primary-200 py-2 rounded font-semibold'>
                   Submit
                 </button>
             </form>
