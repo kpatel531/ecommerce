@@ -72,8 +72,8 @@ const Home = () => {
         </Swiper>
       </div>
 
-      {/* Category grid */}
-      <div className="container mx-auto px-4 my-4 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-2">
+      {/* Category Grid */}
+      <div className="container mx-auto px-4 my-4 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-4">
         {loadingCategory ? (
           new Array(12).fill(null).map((_, index) => (
             <div
@@ -88,16 +88,17 @@ const Home = () => {
           categoryData.map(cat => (
             <div
               key={cat._id + "displayCategory"}
-              className="w-full h-full cursor-pointer"
+              className="cursor-pointer flex flex-col items-center"
               onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
             >
-              <div>
+              <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden bg-gray-100 hover:scale-105 transition-transform duration-300">
                 <img
                   src={cat.image}
                   alt={cat.name}
-                  className="w-full h-full object-scale-down"
+                  className="w-full h-full object-cover"
                 />
               </div>
+              <p className="text-center text-sm mt-1 font-medium">{cat.name}</p>
             </div>
           ))
         )}
