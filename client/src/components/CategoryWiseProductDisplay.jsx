@@ -79,7 +79,9 @@ const CategoryWiseProductDisplay = ({ id, name }) => {
                     {loading &&
                         loadingCardNumber.map((_, index) => {
                             return (
-                                <CardLoading key={"CategorywiseProductDisplay123" + index} />
+                                <div key={"CategorywiseProductDisplay123" + index} className="w-1/4">
+                                    <CardLoading />
+                                </div>
                             )
                         })
                     }
@@ -88,10 +90,9 @@ const CategoryWiseProductDisplay = ({ id, name }) => {
                     {
                         data.map((p, index) => {
                             return (
-                                <CardProduct
-                                    data={p}
-                                    key={p._id + "CategorywiseProductDisplay" + index}
-                                />
+                                <div key={p._id + "CategorywiseProductDisplay" + index} className="w-1/4">
+                                    <CardProduct data={p} />
+                                </div>
                             )
                         })
                     }
