@@ -86,6 +86,11 @@ function App() {
           <Outlet/>
         </main>
 
+        {
+          location.pathname !== '/checkout' && (
+            <CartMobileLink/>
+          )
+        }
         {/* Footer */}
         <Footer/>
       </div>
@@ -96,12 +101,6 @@ function App() {
           },
         }}
       />
-
-      {
-        location.pathname !== '/checkout' && (
-          <CartMobileLink/>
-        )
-      }
     </GlobalProvider>
   )
 }
