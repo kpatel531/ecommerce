@@ -98,6 +98,6 @@ npm start
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Learnings
-Contributions are welcome! Please fork this repository and submit a pull request for any new features or bug fixes.
+This is just for fun and learning purposes.
 
 **Happy Coding!** 🎉
