@@ -1,8 +1,6 @@
 # Full Stack E-commerce Application using MERN Stack
 This project is a full-stack e-commerce platform built using the MERN stack **(MongoDB, Express.js, React.js, and Node.js)**. The application supports **cash on delivery** and **Stripe payment gateway** options, and includes an admin panel with enhanced data security features.
 
-![Alt text](Thumnails.png?raw=true "Title")
-
 ## Features
 
 ### User Features
@@ -96,16 +94,10 @@ npm start
 - Integrate online **stripe payment** for checkout.
 - Implement **customers address** for eCommerce journey.
 
-
-# Demo 
-![Alt text](Demo%201.gif?raw=true "demo1")
-![Alt text](Demo%202.gif?raw=true "demo2")
-
-
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Contributing
+## Learnings
 Contributions are welcome! Please fork this repository and submit a pull request for any new features or bug fixes.
 
 **Happy Coding!** 🎉
